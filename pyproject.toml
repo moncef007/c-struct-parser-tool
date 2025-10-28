@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "c-struct-parser-tool"
+version = "0.0.1"
+description = "Extract C struct values from binary dumps using header definitions"
+readme = "README.md"
+license = {text = "GPL-3.0-or-later"}
+authors = [{name = "Mohamed Elmoncef HAMDI", email = "mohamedelmoncef.hamdi@gmail.com"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GPLv3 License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["build", "twine", "black", "pre-commit", "flake8", "mypy"]
+test = ["pytest"]
+
+[project.scripts]
+c-struct-parser = "c_struct_parser.struct_parser:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["c_struct_parser*"]
